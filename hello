@@ -1,2 +1,53 @@
+user_distance = 25      # metre
+message_opened = False
+unlock_radius = 30
 
-hi
+
+
+
+def check_message_unlock(user_distance, message_opened, unlock_radius=30):
+    if user_distance <= unlock_radius and message_opened == False:                    #desicion mechanism
+        return True                                                                         #unlock rule
+    else:
+        return False
+    
+
+result = check_message_unlock(40, False)
+print(result)
+
+result = check_message_unlock(20, False)
+print(result)
+c
+messages = [
+    {"id": 1, "distance": 10, "opened": False},
+    {"id": 2, "distance": 25, "opened": False},
+    {"id": 3, "distance": 40, "opened": False},
+    {"id": 4, "distance": 20, "opened": True},
+]
+for message in messages:
+    print(message)
+def check_message_unlock(user_distance, message_opened, unlock_radius=30):
+    if user_distance <= unlock_radius and message_opened == False:
+        return True
+    else:
+        return False
+
+
+messages = [
+    {"id": 1, "distance": 10, "opened": False},
+    {"id": 2, "distance": 25, "opened": False},
+    {"id": 3, "distance": 40, "opened": False},
+    {"id": 4, "distance": 20, "opened": True},
+]
+
+
+for message in messages:
+    unlocked = check_message_unlock(
+        message["distance"],
+        message["opened"]
+    )
+
+    if unlocked:
+        print(f"📍 Message {message['id']} OPENED")
+    else:
+        print(f"🔒 Message {message['id']} LOCKED")
